@@ -1,5 +1,12 @@
 server:
   port: 8888
 spring:
+  profiles:
+    active: native #Perfiles para defininir en spring boot, en este caso es el defecto de spring
   application:
     name: microservice-config
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configurations

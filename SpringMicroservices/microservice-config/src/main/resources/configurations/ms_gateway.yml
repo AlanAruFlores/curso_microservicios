@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ms_gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #decimos que el gateway va a estar activo
+      routes: #rutas de microservicios
+        #estudiantes
+        - id: students # id del microservicio estudiantes
+          uri: http://localhost:8090 # uri del microservicio estudiante
+          predicates: # aca indicamos a que apis controllers tiene acceso
+            - Path=/api/student/**
+
+        #cursos
+        - id: courses
+          uri: http://localhost:8091
+          predicates: #indicamos a que apis controller tiene acceso de cursos
+            - Path=/api/courses/**
+eureka:
+  client:
+    register-with-eureka: false

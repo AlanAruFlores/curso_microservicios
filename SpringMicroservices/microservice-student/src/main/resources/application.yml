@@ -1,29 +1,6 @@
-#spring.application.name=microservice-student
-
-server:
-  port: 8090 #puerto donde va a funcionar estre microservicio
 
 spring:
   application:
-    name: microservice-student
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver #Driver
-    url: jdbc:mysql://localhost:3307/student_db #url de la base de datos
-    username: root
-    password:
-  jpa:
-    hibernate:
-      ddl-auto: create
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    name: ms_students
   config:
     import: optional:configserver:http://localhost:8888 # Config server
-
-#Registrar automaticamente a eureka
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-
